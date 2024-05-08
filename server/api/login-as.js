@@ -34,6 +34,7 @@ module.exports = (req, res) => {
   // clear state and code verifier cookies
   res.clearCookie(stateKey, { secure: USING_SSL });
   res.clearCookie(codeVerifierKey, { secure: USING_SSL });
+  const { redirect_path_after_login } = req.query || {};
 
   const sdk = sdkUtils.getSdk(req, res);
 
@@ -43,6 +44,6 @@ module.exports = (req, res) => {
       redirect_uri: loginAsRedirectUri,
       code_verifier: codeVerifier,
     })
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect(redirect_path_after_login || '/'))
     .catch(() => res.status(401).send('Unable to authenticate as a user'));
 };

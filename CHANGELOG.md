@@ -14,6 +14,8 @@ way to update this template, but currently, we follow a pattern:
 
 ## Upcoming version 2024-XX-XX
 
+- [add] Support for a redirect to path parameter (redirect_path_after_login) in the login as user
+  functionality
 - [fix] Styleguide shows multiple versions of some components. The 'id' attributes need to be
   unique. [#380](https://github.com/sharetribe/web-template/pull/380)
 
